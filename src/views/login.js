@@ -12,8 +12,6 @@ const loginTemplate = (onSubmit, errors, data) => html`
             ${field({ label: 'Username', name: 'username', value: data.username, error: errors.username })}
             ${field({ label: 'Password', name: 'password', type: 'password', error: errors.password })}
 
-            <!-- <label>Username: <input type="text" name="username"></label> -->
-            <!-- <label>Password: <input type="password" name="password"></label> -->
             <input type="submit" value="Login">
         </form>
     </article>
@@ -34,10 +32,8 @@ export async function loginPage(ctx) {
             if (username == '' || password == '') {
                 throw {
                     message: 'Please fill all fields!',
-                    errors: {
-                        name: true,
-                        password: true
-                    }
+                    username: true,
+                    password: true
                 };
             }
             await login(username, password);

@@ -6,7 +6,7 @@ import {endpoints, addOwner} from './data.js';
 
 
 export async function getRecipes() {
-    return api.get(endpoints.getRecipes);
+    return api.get(endpoints.recent);
 }
 
 export async function getRecipeById(id) {
