@@ -1,14 +1,15 @@
 import { login } from '../api/user.js';
 import { html } from '../lib.js';
 import { createSubmitHandler } from '../util.js';
-import { field } from './common.js';
+import { errorMsg, field } from './common.js';
 
 const loginTemplate = (onSubmit, errors, data) => html`
 <section id="login">
     <article>
         <h2>Login</h2>
         <form @submit=${onSubmit} id="loginForm">
-            ${errors ? html`<p class="error">${errors.message}</p>` : null}
+            ${errorMsg(errors)}
+
             ${field({ label: 'Username', name: 'username', value: data.username, error: errors.username })}
             ${field({ label: 'Password', name: 'password', type: 'password', error: errors.password })}
 
